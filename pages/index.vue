@@ -8,7 +8,7 @@
 
 <script>
 import Banner from '@/components/home/Banner'
-import AllProjects from '@/components/project/AllProjects'
+import AllProjects from '@/components/projects/AllProjects'
 import MainFooter from '@/components/shared/MainFooter'
 
 export default {
