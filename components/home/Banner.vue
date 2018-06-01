@@ -1,27 +1,29 @@
 <template>
-  <section class="h-screen flex flex-col justify-between p-8">
-
-    <!-- LOGO -->
-    <div class="banner__logo">
-      <nuxt-link to="/">
-        <img class="h-16 w-16" src="@/assets/images/shared/logo-white.png" alt="Logo ivmovies">
-      </nuxt-link>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div class="banner__content text-center mx-auto font-heading font-light">
-      <h1 class="font-hairline tracking-extra leading-loose text-5xl uppercase">IVmovies</h1>
-      <p class="leading-loose">worldwide visual content creator based in belgium</p>
-      <p class="leading-loose">corporate • event • adventure • music</p>
-      <div class="flex mt-8 justify-center text-xs">
-        <button class="bg-white p-4 rounded-full text-red mx-4" @click="scrollTo('#projects')">My work</button>
-        <button class="p-4 rounded-full border border-white text-white mx-4" @click="scrollTo('footer')">Contact</button>
+  <section class="h-screen relative">
+    <video class="absolute w-full h-full bg-video" src="../../assets/video/background.mp4" autoplay loop muted></video>
+    <div class="absolute pin h-screen flex flex-col justify-between z-10">
+      <!-- LOGO -->
+      <div class="p-8">
+        <nuxt-link to="/">
+          <img class="h-16 w-16" src="@/assets/images/shared/logo-white.png" alt="Logo ivmovies">
+        </nuxt-link>
       </div>
-    </div>
 
-    <!-- SHARING -->
-    <div class="banner__share text-right">
-      <socials></socials>
+      <!-- MAIN CONTENT -->
+      <div class="max-w-lg text-center mx-auto font-heading font-light">
+        <h1 class="font-hairline tracking-extra leading-loose text-5xl uppercase">IVmovies</h1>
+        <p class="leading-loose">worldwide visual content creator based in belgium</p>
+        <p class="leading-loose">corporate • event • adventure • music</p>
+        <div class="flex mt-8 justify-center text-xs">
+          <button class="bg-white p-4 rounded-full text-red mx-4" @click="scrollTo('#projects')">My work</button>
+          <button class="p-4 rounded-full border border-white text-white mx-4" @click="scrollTo('footer')">Contact</button>
+        </div>
+      </div>
+
+      <!-- SHARING -->
+      <div class="bg-linear p-8 text-right">
+        <socials></socials>
+      </div>
     </div>
   </section>
 </template>
@@ -45,12 +47,16 @@ export default {
 
 
 <style lang="scss" scoped>
+.bg-video {
+  object-fit: cover;
+  opacity: .7;
+}
+
+.bg-linear {
+  background-image: linear-gradient(rgba(black, 0), rgba(black, 1));
+}
 
 button:focus {
   outline:0;
-}
-
-.banner__content {
-  max-width: 50rem;
 }
 </style>

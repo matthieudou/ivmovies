@@ -1,5 +1,5 @@
 <template>
-  <section id="projects" class="max-w-lg mx-auto">
+  <section id="projects" class="max-w-lg mx-auto pt-full">
     <!-- CONTAINER -->
     <div class="flex flex-wrap">
       <!-- PROJECTS -->
