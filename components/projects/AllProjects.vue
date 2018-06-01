@@ -3,7 +3,7 @@
     <!-- CONTAINER -->
     <div class="flex flex-wrap">
       <!-- PROJECTS -->
-      <nuxt-link :to="`/projects/${project.slug}`" class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4" v-for="project in projects" :key="project.slug">
+      <nuxt-link :to="`/projects/${project.slug}`" class="w-full md:w-1/2 lg:w-1/3 p-4" v-for="project in projects" :key="project.slug">
         <div class="square relative cursor-pointer" :style="`background-image: url(${project.content.thumbnail})`">
           <div class="absolute pin flex items-center justify-center content">
             <h2 class="bg-black text-white py-2 px-4 rounded-full font-light text-base">{{ project.content.title }}</h2>
