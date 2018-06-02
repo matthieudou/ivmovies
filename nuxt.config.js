@@ -14,6 +14,9 @@ module.exports = {
     '~/assets/styles/main.scss'
   ],
   loading: { color: '#3B8070' },
+  plugins: [
+    {src: '~/plugins/ga.js', ssr: false}
+  ],
   modules: [
     ['storyblok-nuxt', {accessToken: 'HfuYoJQa3f9vXrVraPr4wgtt', cacheProvider: 'memory'}]
   ],
