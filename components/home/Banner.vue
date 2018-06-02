@@ -1,5 +1,5 @@
 <template>
-  <section class="h-screen relative overflow-hidden" :style="`background-image: url(${require('@/assets/images/bg.png')})`">
+  <section class="h-screen relative overflow-hidden banner__background" :style="`background-image: url(${require('@/assets/images/bg.png')})`">
     <div class="video-container relative pin w-full h-full">
       <video class="absolute w-full h-full bg-video" src="../../assets/video/background.mp4" autoplay loop muted></video>
     </div>
@@ -49,6 +49,11 @@ export default {
 
 
 <style lang="scss" scoped>
+.banner__background {
+  background-position: center;
+  background-size: cover;
+}
+
 .bg-video {
   object-fit: cover;
   position: relative;
