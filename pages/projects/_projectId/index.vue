@@ -7,13 +7,14 @@
         </div>
       </no-ssr>
       <h1 class="font-hairline font-heading">{{ project.title }}</h1>
-      <div>{{ project.description }}</div>
+      <div class="pt-4" v-html="displayContent(project.description)"></div>
     </div>
   </div>
 </template>
 
 <script>
 import url from 'url'
+import marked from 'marked'
 
 export default {
   asyncData ({ app, params }) {
@@ -37,6 +38,9 @@ export default {
       if (link.hostname === 'vimeo.com') {
         return 'https://player.vimeo.com/video/' + link.pathname.replace('/', '')
       }
+    },
+    displayContent (content) {
+      return marked(content)
     }
   }
 }
