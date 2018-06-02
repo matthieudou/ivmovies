@@ -19,7 +19,6 @@ export default {
   asyncData ({ app, params }) {
     return app.$storyapi.get('cdn/stories/projects/' + params.projectId, {version: 'published'})
       .then(res => {
-        console.log(app)
         return {
           project: {
             title: res.data.story.content.title,

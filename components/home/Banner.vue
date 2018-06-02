@@ -1,6 +1,8 @@
 <template>
-  <section class="h-screen relative">
-    <video class="absolute w-full h-full bg-video" src="../../assets/video/background.mp4" autoplay loop muted></video>
+  <section class="h-screen relative overflow-hidden" :style="`background-image: url(${require('@/assets/images/bg.png')})`">
+    <div class="video-container relative pin w-full h-full">
+      <video class="absolute w-full h-full bg-video" src="../../assets/video/background.mp4" autoplay loop muted></video>
+    </div>
     <div class="absolute pin h-screen flex flex-col justify-between z-10">
       <!-- LOGO -->
       <div class="p-8">
@@ -49,7 +51,18 @@ export default {
 <style lang="scss" scoped>
 .bg-video {
   object-fit: cover;
-  opacity: .7;
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 5px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
 }
 
 .bg-linear {

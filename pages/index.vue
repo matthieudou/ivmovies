@@ -13,7 +13,6 @@ export default {
   asyncData ({ app }) {
     return app.$storyapi.get('cdn/stories', {version: 'draft', starts_with: 'projects/'})
       .then(res => {
-        console.log(res.data.stories)
         return {
           projects: res.data.stories
         }

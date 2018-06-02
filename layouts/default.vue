@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-black min-h-screen text-white font-sans">
-    <nuxt/>
+  <div class="bg-black min-h-screen text-white font-sans flex flex-col">
+    <nuxt class="flex-1"/>
     <app-footer></app-footer>
   </div>
 </template>
