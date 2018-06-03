@@ -17,12 +17,30 @@ import url from 'url'
 import marked from 'marked'
 
 export default {
+  head () {
+    return {
+      title: this.project.title,
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { hid: 'description', name: 'description', content: 'IV Movies portfolio' },
+        // OPEN GRAPH
+        { hid: 'og:title', property: 'og:title', content: this.project.title },
+        { hid: 'og:description', property: 'og:description', content: this.project.description },
+        { hid: 'og:type', property: 'og:type', content: 'video.movie' },
+        { hid: 'og:url', property: 'og:url', content: this.project.link },
+        { hid: 'og:image', property: 'og:image', content: this.project.thumbnail },
+      ]
+    }
+  },
   asyncData ({ app, params }) {
     return app.$storyapi.get('cdn/stories/projects/' + params.projectId, {version: 'published'})
       .then(res => {
         return {
           project: {
+            link: `https://www.ivmovies.be/projects/${params.projectId}`,
             title: res.data.story.content.title,
+            thumbnail: res.data.story.content.thumbnail,
             description: res.data.story.content.description,
             video_link: res.data.story.content.video_link
           }
