@@ -1,3 +1,5 @@
+const axios = require('axios')
+
 module.exports = {
   head: {
     title: 'IVMOVIES',
@@ -27,6 +29,22 @@ module.exports = {
   modules: [
     ['storyblok-nuxt', {accessToken: 'HfuYoJQa3f9vXrVraPr4wgtt', cacheProvider: 'memory'}]
   ],
+  generate: {
+    routes: function () {
+      return axios.get(
+        'https://api.storyblok.com/v1/cdn/stories?version=published&token=kQi9mTLBwINGa7ND9JLa1Att&starts_with=projects&cv=' +
+        Math.floor(Date.now() / 1e3)
+      )
+      .then(res => {
+        const projects = res.data.stories.map(project => project.full_slug)
+        return [
+          '/',
+          '/projects',
+          ...projects
+        ]
+      })
+    }
+  },
   build: {
     extend (config, { isDev, isClient }) {
       if (isDev && isClient) {
