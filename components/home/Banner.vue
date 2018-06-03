@@ -11,13 +11,15 @@
       </div>
 
       <!-- MAIN CONTENT -->
-      <div class="max-w-lg text-center mx-auto font-heading font-light">
-        <h1 class="font-hairline tracking-extra leading-loose text-5xl uppercase">IVmovies</h1>
-        <p class="leading-loose">worldwide visual content creator based in belgium</p>
-        <p class="leading-loose">corporate • event • adventure • music</p>
-        <div class="flex mt-8 justify-center text-xs">
-          <button class="bg-white p-4 rounded-full text-red mx-4" @click="scrollTo('#projects')">My work</button>
-          <button class="p-4 rounded-full border border-white text-white mx-4" @click="scrollTo('footer')">Contact</button>
+      <div class="absolute w-full h-full h-full flex justify-center items-center">
+        <div class="max-w-lg text-center font-heading font-light">
+          <h1 class="font-hairline tracking-extra leading-loose text-5xl uppercase">IVmovies</h1>
+          <p class="leading-loose">worldwide visual content creator based in belgium</p>
+          <p class="leading-loose">corporate • event • adventure • music</p>
+          <div class="flex mt-8 justify-center text-xs">
+            <button class="bg-white p-4 rounded-full text-red mx-4" @click="scrollTo('#projects')">My work</button>
+            <button class="p-4 rounded-full border border-white text-white mx-4" @click="scrollTo('footer')">Contact</button>
+          </div>
         </div>
       </div>
 
