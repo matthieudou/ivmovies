@@ -51,8 +51,7 @@ export default {
 .banner__background--image {
   background-position: center;
   background-size: cover;
-  background-image: url('../../assets/images/shared/background.jpg'), linear-gradient(to right bottom, black .8, black .2);
-  filter: blur(6px);
+  background-image: radial-gradient(rgba(black, .4), rgba(black, 0)), url('../../assets/images/shared/background.jpg');
 }
 
 .bg-video {
