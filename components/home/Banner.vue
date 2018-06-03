@@ -6,7 +6,7 @@
       <!-- LOGO -->
       <div class="p-8">
         <nuxt-link to="/">
-          <img class="h-16 w-16" src="@/assets/images/shared/logo-white.png" alt="Logo ivmovies">
+          <img class="h-16 w-16 lg:h-24 lg:w-24" src="@/assets/images/shared/logo-white.png" alt="Logo ivmovies">
         </nuxt-link>
       </div>
 
