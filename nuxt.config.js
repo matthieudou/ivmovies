@@ -28,7 +28,7 @@ module.exports = {
     { src: '~/plugins/vue-scrollto.js', ssr: false }
   ],
   modules: [
-    ['storyblok-nuxt', {accessToken: 'HfuYoJQa3f9vXrVraPr4wgtt', cacheProvider: 'memory'}]
+    ['storyblok-nuxt', {accessToken: 'kQi9mTLBwINGa7ND9JLa1Att', cacheProvider: 'memory'}]
   ],
   generate: {
     routes: function () {

@@ -11,7 +11,7 @@ import AllProjects from '@/components/projects/AllProjects'
 
 export default {
   asyncData ({ app }) {
-    return app.$storyapi.get('cdn/stories', {version: 'draft', starts_with: 'projects/'})
+    return app.$storyapi.get('cdn/stories', {version: 'published', starts_with: 'projects/'})
       .then(res => {
         return {
           projects: res.data.stories
