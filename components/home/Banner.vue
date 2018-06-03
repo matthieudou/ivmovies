@@ -17,8 +17,8 @@
           <p class="leading-loose">worldwide visual content creator based in belgium</p>
           <p class="leading-loose">corporate • event • adventure • music</p>
           <div class="flex mt-8 justify-center text-xs">
-            <button class="bg-white p-4 rounded-full text-second mx-4 font-bold" @click="scrollTo('#projects')">My work</button>
-            <button class="p-4 rounded-full border-2 border-white text-white mx-4 font-bold hover:bg-white hover:text-second" @click="scrollTo('footer')">Contact</button>
+            <button class="bg-white p-4 rounded-full text-second mx-4 font-bold" v-scroll-to="'#projects'">My work</button>
+            <button class="p-4 rounded-full border-2 border-white text-white mx-4 font-bold hover:bg-white hover:text-second" v-scroll-to="'footer'">Contact</button>
           </div>
         </div>
       </div>
@@ -35,14 +35,6 @@
 import Socials from '@/components/shared/Socials'
 
 export default {
-  methods: {
-    scrollTo (element) {
-      document.querySelector(element).scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      })
-    }
-  },
   components: {
     Socials
   }
