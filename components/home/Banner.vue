@@ -1,8 +1,7 @@
 <template>
-  <section class="h-screen relative overflow-hidden banner__background" :style="`background-image: url(${require('@/assets/images/bg.png')})`">
-    <div class="video-container relative pin w-full h-full">
-      <video class="absolute w-full h-full bg-video" src="../../assets/video/background.mp4" autoplay loop muted></video>
-    </div>
+  <section class="h-screen relative overflow-hidden">
+    <div class="banner__background--image abslolute w-full h-full"></div>
+    <video class="absolute w-full h-full bg-video" src="../../assets/video/background.mp4" autoplay loop muted></video>
     <div class="absolute pin h-screen flex flex-col justify-between z-10">
       <!-- LOGO -->
       <div class="p-8">
@@ -49,9 +48,11 @@ export default {
 
 
 <style lang="scss" scoped>
-.banner__background {
+.banner__background--image {
   background-position: center;
   background-size: cover;
+  background-image: url('../../assets/images/shared/background.jpg'), linear-gradient(to right bottom, black .8, black .2);
+  filter: blur(6px);
 }
 
 .bg-video {
