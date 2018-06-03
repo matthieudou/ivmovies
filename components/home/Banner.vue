@@ -1,8 +1,8 @@
 <template>
-  <section class="h-screen relative overflow-hidden">
-    <div class="banner__background--image abslolute w-full h-full"></div>
-    <video class="absolute w-full h-full bg-video" src="../../assets/video/background.mp4" autoplay loop muted></video>
-    <div class="absolute pin h-screen flex flex-col justify-between z-10">
+  <section class="relative h-screen overflow-hidden">
+    <video class="absolute w-full h-full bg-video hidden md:block" src="../../assets/video/background.mp4" autoplay loop muted></video>
+    <div class="abslolute banner__background--image w-full h-full"></div>
+    <div class="absolute pin h-screen flex flex-col justify-between">
       <!-- LOGO -->
       <div class="p-8">
         <nuxt-link to="/">
@@ -17,8 +17,8 @@
           <p class="leading-loose">worldwide visual content creator based in belgium</p>
           <p class="leading-loose">corporate • event • adventure • music</p>
           <div class="flex mt-8 justify-center text-xs">
-            <button class="bg-white p-4 rounded-full text-red mx-4" @click="scrollTo('#projects')">My work</button>
-            <button class="p-4 rounded-full border border-white text-white mx-4" @click="scrollTo('footer')">Contact</button>
+            <button class="bg-white p-4 rounded-full text-second mx-4 font-bold" @click="scrollTo('#projects')">My work</button>
+            <button class="p-4 rounded-full border-2 border-white text-white mx-4 font-bold hover:bg-white hover:text-second" @click="scrollTo('footer')">Contact</button>
           </div>
         </div>
       </div>
@@ -38,7 +38,8 @@ export default {
   methods: {
     scrollTo (element) {
       document.querySelector(element).scrollIntoView({
-        behavior: 'smooth'
+        behavior: 'smooth',
+        block: 'start'
       })
     }
   },
@@ -78,5 +79,9 @@ export default {
 
 button:focus {
   outline:0;
+}
+
+button {
+  transition: all .2s ease-in-out;
 }
 </style>
