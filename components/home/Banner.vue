@@ -35,6 +35,10 @@
 import Socials from '@/components/shared/Socials'
 
 export default {
+  mounted () {
+    console.log(this.$el)
+    this.$el.querySelector('video').play()
+  },
   components: {
     Socials
   }
