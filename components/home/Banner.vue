@@ -4,14 +4,14 @@
     <div class="abslolute banner__background--image w-full h-full"></div>
     <div class="absolute pin h-screen flex flex-col justify-between">
       <!-- LOGO -->
-      <div class="p-8">
+      <div class=" flex-1 p-8">
         <nuxt-link to="/">
           <img class="h-16 w-16 lg:h-24 lg:w-24" src="@/assets/images/shared/logo-white.png" alt="Logo ivmovies">
         </nuxt-link>
       </div>
 
       <!-- MAIN CONTENT -->
-      <div class="absolute w-full h-full h-full flex justify-center items-center">
+      <div class="flex justify-center items-center">
         <div class="max-w-lg text-center font-heading font-light">
           <h1 class="font-hairline tracking-extra leading-loose text-5xl uppercase">IVmovies</h1>
           <p class="leading-loose">worldwide visual content creator based in belgium</p>
@@ -24,7 +24,7 @@
       </div>
 
       <!-- SHARING -->
-      <div class="bg-linear p-8 text-right">
+      <div class="flex-1 bg-linear p-8 flex items-end justify-end">
         <socials></socials>
       </div>
     </div>
