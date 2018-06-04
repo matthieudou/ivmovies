@@ -6,7 +6,7 @@
           <iframe class="absolute pin w-full h-full" :src="iframeEmbedUrl(project.video_link)" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
         </div>
       </no-ssr>
-      <h1 class="font-hairline font-heading mt-4">{{ project.title }}</h1>
+      <h1 class="font-hairline mt-4">{{ project.title }}</h1>
       <div class="mt-4" v-html="displayContent(project.description)"></div>
     </div>
   </div>

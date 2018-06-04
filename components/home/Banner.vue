@@ -12,7 +12,7 @@
 
       <!-- MAIN CONTENT -->
       <div class="flex justify-center items-center">
-        <div class="max-w-lg text-center font-heading font-light">
+        <div class="max-w-lg text-center font-light">
           <h1 class="font-hairline tracking-extra leading-loose text-5xl uppercase">IVmovies</h1>
           <p class="leading-loose">worldwide visual content creator based in belgium</p>
           <p class="leading-loose">corporate • event • adventure • music</p>
