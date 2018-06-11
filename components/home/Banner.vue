@@ -17,8 +17,18 @@
           <p class="leading-loose">worldwide visual content creator based in belgium</p>
           <p class="leading-loose">corporate • event • adventure • music</p>
           <div class="flex mt-8 justify-center text-xs">
-            <button class="bg-white p-4 rounded-full text-second mx-4 font-bold" v-scroll-to="'#projects'">My work</button>
-            <button class="p-4 rounded-full border-2 border-white text-white mx-4 font-bold hover:bg-white hover:text-second" v-scroll-to="'footer'">Contact</button>
+            <button
+              class="bg-white rounded-full p-4 text-second mx-4 font-bold flex items-center icon-animation"
+              v-scroll-to="'#projects'">
+              <span class="mx-2">My work</span>
+              <svg class="fill-current w-4 h-4 mx-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"/></svg>
+            </button>
+            <button
+              class="p-4 rounded-full border-2 border-white text-white mx-4 font-bold hover:bg-white hover:text-second flex items-center icon-animation"
+              v-scroll-to="'footer'">
+              <span class="mx-2">Contact</span>
+              <svg class="fill-current w-4 h-4 mx-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"/></svg>
+            </button>
           </div>
         </div>
       </div>
@@ -76,7 +86,29 @@ button:focus {
   outline:0;
 }
 
-button {
-  transition: all .2s ease-in-out;
+.icon-animation {
+  overflow: hidden;
+
+  &:hover {
+    svg {
+      animation: fadeIn .2s;
+      display: block;
+    }
+  }
+
+  svg {
+    display: none;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    display: block;
+    transform: translateX(-3rem);
+  }
+  to {
+    display: none;
+    transform: translateX(0);
+  }
 }
 </style>
