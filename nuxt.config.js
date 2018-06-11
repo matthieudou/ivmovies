@@ -25,7 +25,8 @@ module.exports = {
   loading: { color: '#3B8070' },
   plugins: [
     { src: '~/plugins/ga.js', ssr: false },
-    { src: '~/plugins/vue-scrollto.js', ssr: false }
+    { src: '~/plugins/vue-scrollto.js', ssr: false },
+    { src: '~/plugins/sentry.js' }
   ],
   modules: [
     ['storyblok-nuxt', {accessToken: 'HGumYuCWCE1nTIHD63sGrQtt', cacheProvider: 'memory'}]
