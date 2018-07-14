@@ -46,10 +46,10 @@ View the full documentation at https://tailwindcss.com.
 let colors = {
   'transparent': 'transparent',
 
-  'main': '#000',
+  'main': '#111',
   'second': '#FF7E67',
 
-  'black': '#000',
+  'black': '#111',
   'white': '#ffffff',
 }
 

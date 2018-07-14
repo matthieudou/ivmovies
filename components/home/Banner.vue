@@ -45,8 +45,10 @@
 import Socials from '@/components/shared/Socials'
 
 export default {
-  mounted () {
-    this.$el.querySelector('video').play()
+  mounted() {
+    setTimeout(() => {
+      this.$el.querySelector('video').play()
+    }, 500);
   },
   components: {
     Socials
@@ -79,7 +81,7 @@ export default {
 }
 
 .bg-linear {
-  background-image: linear-gradient(rgba(black, 0), rgba(black, 1));
+  background-image: linear-gradient(rgba(#111, 0), rgba(#111, 1));
 }
 
 button:focus {
