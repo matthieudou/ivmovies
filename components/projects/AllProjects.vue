@@ -28,7 +28,7 @@ export default {
 }
 
 .content {
-  background-image: linear-gradient(to right bottom, rgba(0, 0, 0, .6), rgba(0, 0, 0, .4));
+  background-image: linear-gradient(to right bottom, rgba(0, 0, 0, .2), rgba(0, 0, 0, 0));
   transition: all .2s ease-in-out;
 
   &:hover {
