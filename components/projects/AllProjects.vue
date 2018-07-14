@@ -42,7 +42,7 @@ export default {
   }
 
   &:hover h2 {
-
+    text-align: center;
     transform: translateY(0);
     opacity: 1;
   }
