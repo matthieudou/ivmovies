@@ -1,6 +1,8 @@
 <template>
   <section class="relative h-screen overflow-hidden">
-    <video class="absolute w-full h-full bg-video hidden md:block" src="../../assets/video/background.mp4" autoplay loop muted></video>
+    <video class="absolute w-full h-full bg-video hidden md:block" autoplay loop muted>
+      <source src="../../assets/video/background.mp4" type="video/mp4">
+    </video>
     <div class="abslolute banner__background--image w-full h-full"></div>
     <div class="absolute pin h-screen flex flex-col justify-between">
       <!-- LOGO -->
