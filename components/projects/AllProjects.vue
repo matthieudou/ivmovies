@@ -36,6 +36,7 @@ export default {
   }
 
   & h2 {
+    text-align: center;
     transform: translateY(20px);
     opacity: 0;
     transition: all .2s ease-in-out;
