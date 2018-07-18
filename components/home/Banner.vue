@@ -1,6 +1,8 @@
 <template>
   <section class="relative h-screen overflow-hidden">
-    <video class="absolute w-full h-full bg-video hidden md:block" src="../../assets/video/background.mp4" autoplay loop muted></video>
+    <video class="absolute w-full h-full bg-video hidden md:block" autoplay loop muted>
+      <source src="../../assets/video/background.mp4" type="video/mp4">
+    </video>
     <div class="abslolute banner__background--image w-full h-full"></div>
     <div class="absolute pin h-screen flex flex-col justify-between">
       <!-- LOGO -->
@@ -45,8 +47,10 @@
 import Socials from '@/components/shared/Socials'
 
 export default {
-  mounted () {
-    this.$el.querySelector('video').play()
+  mounted() {
+    setTimeout(() => {
+      this.$el.querySelector('video').play()
+    }, 500);
   },
   components: {
     Socials
@@ -79,7 +83,7 @@ export default {
 }
 
 .bg-linear {
-  background-image: linear-gradient(rgba(black, 0), rgba(black, 1));
+  background-image: linear-gradient(rgba(#111, 0), rgba(#111, 1));
 }
 
 button:focus {
