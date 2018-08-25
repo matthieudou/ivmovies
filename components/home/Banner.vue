@@ -17,7 +17,7 @@
         <div class="max-w-lg text-center font-light">
           <h1 class="font-hairline tracking-extra leading-loose text-5xl uppercase">IVmovies</h1>
           <p class="leading-loose">worldwide visual content creator based in belgium</p>
-          <p class="leading-loose">corporate • event • adventure • music</p>
+          <p class="leading-loose">corporate • events • adventure • music</p>
           <div class="flex mt-8 justify-center text-xs">
             <button
               class="bg-white rounded-full p-4 text-second mx-4 font-bold flex items-center icon-animation"
