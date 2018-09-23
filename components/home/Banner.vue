@@ -36,7 +36,7 @@
       </div>
 
       <!-- SHARING -->
-      <div class="flex-1 bg-linear p-8 flex items-end justify-end">
+      <div class="-mb-1 flex-1 bg-linear p-8 flex items-end justify-end">
         <socials></socials>
       </div>
     </div>
