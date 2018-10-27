@@ -59,7 +59,8 @@ export default {
     select: {
       title: 'title',
       media: 'thumbnail',
-      subtitle: 'slug.current'
+      subtitle: 'slug.current',
+      description: 'description'
     }
   }
 }
