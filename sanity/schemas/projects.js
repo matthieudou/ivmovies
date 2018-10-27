@@ -9,7 +9,10 @@ export default {
     {
       name: 'title',
       title: 'Title',
-      type: 'string'
+      type: 'string',
+      validation: Rule => [
+        Rule.required()
+      ]
     },
     {
       name: 'slug',
@@ -18,17 +21,27 @@ export default {
       options: {
         source: 'title',
         maxLength: 100
-      }
+      },
+      validation: Rule => [
+        Rule.required()
+      ]
     },
     {
       name: 'lien',
       title: 'Lien de la vidéo',
-      type: 'url'
+      type: 'url',
+      validation: Rule => [
+        Rule.required(),
+        Rule.regex(/^https?:\/\/vimeo.com\/[0-9]+/i).error('Ask @matthieudou if you want to add youtube or something else')
+      ]
     },
     {
       name: 'description',
       title: 'Description',
-      type: 'blockContent'
+      type: 'blockContent',
+      validation: Rule => [
+        Rule.required()
+      ]
     },
     {
       name: 'thumbnail',
@@ -36,7 +49,10 @@ export default {
       type: 'image',
       options: {
         hotspot: true
-      }
+      },
+      validation: Rule => [
+        Rule.required()
+      ]
     },
   ],
   preview: {
