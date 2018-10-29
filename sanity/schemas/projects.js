@@ -2,7 +2,7 @@ import icon from 'react-icons/lib/md/local-movies'
 
 export default {
   name: 'projects',
-  title: 'Projets',
+  title: 'Projects',
   type: 'document',
   icon,
   fields: [
@@ -59,8 +59,7 @@ export default {
     select: {
       title: 'title',
       media: 'thumbnail',
-      subtitle: 'slug.current',
-      description: 'description'
+      subtitle: 'slug.current'
     }
   }
 }
