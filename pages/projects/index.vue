@@ -1,21 +1,28 @@
 <template>
-  <all-projects :projects="projects"></all-projects>
+  <all-projects class="pt-2" :projects="projects"></all-projects>
 </template>
 
 <script>
-import AllProjects from '@/components/projects/AllProjects'
+  import AllProjects from '@/components/projects/AllProjects'
 
-export default {
-  asyncData ({ app }) {
-    return app.$storyapi.get('cdn/stories', {version: 'draft', starts_with: 'projects/'})
-      .then(res => {
-        return {
-          projects: res.data.stories
-        }
-      })
-  },
-  components: {
-    AllProjects
+  const query = `*[_type == "projects"] {
+    title,
+    "slug": slug.current,
+    "thumbnail": thumbnail
+  } | order(release_date desc)`
+
+  export default {
+    asyncData ({ app }) {
+      return app.$sanity.fetch(query)
+        .then(res => {
+          return {
+            projects: res
+          }
+        })
+    },
+
+    components: {
+      AllProjects
+    }
   }
-}
 </script>
