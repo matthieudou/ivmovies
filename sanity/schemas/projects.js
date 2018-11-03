@@ -1,4 +1,4 @@
-import icon from 'react-icons/lib/md/local-movies'
+import icon from './projects-icon'
 
 export default {
   name: 'projects',
