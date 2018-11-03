@@ -1,4 +1,8 @@
 import Vue from 'vue'
-import Sanity from '~/utilities/sanity'
+import { sanity, config } from '~/utilities/sanity'
 
-Vue.use(Sanity)
+Vue.use(sanity)
+
+export default ({ app }) => {
+  app.$sanity = config
+}

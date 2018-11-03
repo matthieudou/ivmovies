@@ -11,10 +11,10 @@
       >
         <div
           class="square relative cursor-pointer"
-          :style="`background-image: url(${project.content.thumbnail})`"
+          :style="`background-image: url(${imageUrlFor(project.thumbnail).width(600)})`"
         >
           <div class="absolute pin flex items-center justify-center content p-4">
-            <h2 class="bg-black text-white py-2 px-4 rounded-full font-light text-base">{{ project.content.title }}</h2>
+            <h2 class="bg-black text-white py-2 px-4 rounded-full font-light text-base">{{ project.title }}</h2>
           </div>
         </div>
       </nuxt-link>
@@ -23,9 +23,17 @@
 </template>
 
 <script>
-export default {
-  props: ['projects']
-}
+  import imageUrlBuilder from '@sanity/image-url'
+
+  export default {
+    props: ['projects'],
+
+    methods: {
+      imageUrlFor (source) {
+        return imageUrlBuilder(this.$sanity).image(source)
+      }
+    }
+  }
 </script>
 
 <style lang="scss" scoped>
