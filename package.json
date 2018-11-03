@@ -13,6 +13,7 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "@sanity/client": "^0.135.3",
     "marked": "^0.4.0",
     "node-sass": "^4.9.0",
     "nuxt": "^1.0.0",

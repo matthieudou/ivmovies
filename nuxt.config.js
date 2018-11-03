@@ -26,7 +26,8 @@ module.exports = {
   plugins: [
     { src: '~/plugins/ga.js', ssr: false },
     { src: '~/plugins/vue-scrollto.js', ssr: false },
-    { src: '~/plugins/sentry.js' }
+    { src: '~/plugins/sentry.js' },
+    { src: '~/plugins/sanity.js' }
   ],
   modules: [
     ['storyblok-nuxt', {accessToken: 'HGumYuCWCE1nTIHD63sGrQtt', cacheProvider: 'memory'}]
