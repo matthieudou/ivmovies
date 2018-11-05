@@ -46,14 +46,15 @@
     asyncData ({ app, params }) {
       return app.$sanity.fetch(query, {slug: params.projectId})
         .then(res => {
+          console.log(res)
           return {
             project: {
               title: res.title,
               video_link: res.video_link,
               url: `https://www.ivmovies.be/projects/${params.projectId}`,
               thumbnail: imageUrlBuilder(app.$sanity).image(res.thumbnail).width(1200).height(1200).url(),
-              description: toHtml({blocks: res.description}),
-              strippedDescription: striptags(toHtml({blocks: res.description}))
+              description: res.description ? toHtml({blocks: res.description}) : '',
+              strippedDescription: res.description ? striptags(toHtml({blocks: res.description})) : ''
             }
           }
         })

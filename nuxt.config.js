@@ -1,3 +1,5 @@
+import { config as sanity } from './utilities/sanity'
+
 export default {
   head: {
     title: 'IVMOVIES',
@@ -27,24 +29,22 @@ export default {
     { src: '~/plugins/sentry.js' },
     { src: '~/plugins/sanity.js' }
   ],
-  modules: [
-    // ['storyblok-nuxt', {accessToken: 'HGumYuCWCE1nTIHD63sGrQtt', cacheProvider: 'memory'}]
-  ],
   generate: {
-    // routes: function () {
-    //   return axios.get(
-    //     'https://api.storyblok.com/v1/cdn/stories?version=published&token=kQi9mTLBwINGa7ND9JLa1Att&starts_with=projects&cv=' +
-    //     Math.floor(Date.now() / 1e3)
-    //   )
-    //   .then(res => {
-    //     const projects = res.data.stories.map(project => project.full_slug)
-    //     return [
-    //       '/',
-    //       '/projects',
-    //       ...projects
-    //     ]
-    //   })
-    // }
+    routes: function () {
+      const query = `*[_type == "projects"] {
+        "slug": slug.current
+      }`
+
+      return sanity.fetch(query)
+        .then(res => {
+          const projects = res.map(project => `/projects/${project.slug}`)
+          return [
+            '/',
+            '/projects',
+            ...projects
+          ]
+        })
+    }
   },
   build: {
     extend (config, { isDev, isClient }) {
