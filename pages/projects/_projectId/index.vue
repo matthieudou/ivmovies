@@ -46,7 +46,6 @@
     asyncData ({ app, params }) {
       return app.$sanity.fetch(query, {slug: params.projectId})
         .then(res => {
-          console.log(res)
           return {
             project: {
               title: res.title,
