@@ -1,7 +1,9 @@
 <template>
   <section class="relative h-screen overflow-hidden">
     <video class="absolute w-full h-full bg-video hidden md:block" autoplay loop muted>
-      <source src="../../assets/video/background.mp4" type="video/mp4">
+      <source src="https://res.cloudinary.com/ivmovies/video/upload/v1541952812/background.webm" type="video/webm">
+      <source src="https://res.cloudinary.com/ivmovies/video/upload/v1541952812/background.mp4" type="video/mp4">
+      <source src="https://res.cloudinary.com/ivmovies/video/upload/v1541952812/background.ogv" type="video/ogg">
     </video>
     <div class="abslolute banner__background--image w-full h-full"></div>
     <div class="absolute pin h-screen flex flex-col justify-between">
