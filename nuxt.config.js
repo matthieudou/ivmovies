@@ -9,10 +9,10 @@ export default {
       { hid: 'description', name: 'description', content: 'IV Movies portfolio' },
       // OPEN GRAPH
       { hid: 'og:title', property: 'og:title', content: 'IVMOVIES' },
-      { hid: 'og:description', property: 'og:description', content: 'Worldwide visual content creator based in belgium'},
+      { hid: 'og:description', property: 'og:description', content: 'Worldwide visual content creator based in belgium' },
       { hid: 'og:type', property: 'og:type', content: 'video.movie' },
       { hid: 'og:url', property: 'og:url', content: 'https://www.ivmovies.be' },
-      { hid: 'og:image', property: 'og:image', content: 'https://www.ivmovies.be/sharing.jpg' },
+      { hid: 'og:image', property: 'og:image', content: 'https://www.ivmovies.be/sharing.jpg' }
 
     ],
     link: [
