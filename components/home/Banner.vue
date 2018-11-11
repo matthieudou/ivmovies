@@ -15,10 +15,15 @@
       <!-- MAIN CONTENT -->
       <div class="flex justify-center items-center">
         <div class="max-w-lg text-center font-light">
+          <!-- TITLE -->
           <h1 class="font-hairline tracking-extra leading-loose text-5xl uppercase">IVmovies</h1>
-          <p class="leading-loose">worldwide visual content creator based in belgium</p>
-          <p class="leading-loose">corporate • event • adventure • music</p>
-          <div class="flex mt-8 justify-center text-xs">
+
+          <!-- DESCRIPTION -->
+          <p class="leading-loose text-lg">worldwide visual content creator based in belgium</p>
+          <p class="leading-loose text-lg">corporate • event • adventure • music</p>
+
+          <!-- BUTTONS -->
+          <div class="flex mt-8 justify-center text-sm">
             <button
               class="bg-white rounded-full p-4 text-second mx-4 font-bold flex items-center icon-animation"
               v-scroll-to="'#projects'">
@@ -26,7 +31,7 @@
               <svg class="fill-current w-4 h-4 mx-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"/></svg>
             </button>
             <button
-              class="p-4 rounded-full border-2 border-white text-white mx-4 font-bold hover:bg-white hover:text-second flex items-center icon-animation"
+              class="p-4 rounded-full border-2 border-white text-white mx-4 font-bold hover:bg-white hover:text-second hover:border-0 flex items-center icon-animation"
               v-scroll-to="'footer'">
               <span class="mx-2">Contact</span>
               <svg class="fill-current w-4 h-4 mx-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"/></svg>
@@ -107,11 +112,9 @@ button:focus {
 
 @keyframes fadeIn {
   from {
-    display: block;
     transform: translateX(-3rem);
   }
   to {
-    display: none;
     transform: translateX(0);
   }
 }
