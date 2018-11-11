@@ -7,61 +7,70 @@
         </div>
       </no-ssr>
       <h1 class="font-hairline mt-4">{{ project.title }}</h1>
-      <div class="mt-4" v-html="displayContent(project.description)"></div>
+      <div class="mt-4 leading-normal" v-html="project.description"></div>
     </div>
   </div>
 </template>
 
 <script>
-import url from 'url'
-import marked from 'marked'
+  import url from 'url'
+  import toHtml from '@sanity/block-content-to-html'
+  import imageUrlBuilder from '@sanity/image-url'
+  import striptags from 'striptags'
 
-export default {
-  head () {
-    return {
-      title: this.project.title,
-      meta: [
-        { charset: 'utf-8' },
-        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { hid: 'description', name: 'description', content: 'IV Movies portfolio' },
-        // OPEN GRAPH
-        { hid: 'og:title', property: 'og:title', content: this.project.title },
-        { hid: 'og:description', property: 'og:description', content: this.project.description },
-        { hid: 'og:type', property: 'og:type', content: 'video.movie' },
-        { hid: 'og:url', property: 'og:url', content: this.project.link },
-        { hid: 'og:image', property: 'og:image', content: this.project.thumbnail },
-      ]
-    }
-  },
-  asyncData ({ app, params }) {
-    return app.$storyapi.get('cdn/stories/projects/' + params.projectId, {version: 'published'})
-      .then(res => {
-        return {
-          project: {
-            link: `https://www.ivmovies.be/projects/${params.projectId}`,
-            title: res.data.story.content.title,
-            thumbnail: res.data.story.content.thumbnail,
-            description: res.data.story.content.description,
-            video_link: res.data.story.content.video_link
-          }
-        }
-      })
-  },
-  methods: {
-    iframeEmbedUrl (video_link) {
-      const link = url.parse(video_link)
-      if (link.hostname === 'youtube.com') {
-        return 'https://www.youtube.com/embed/' + link.searchParams.get('v')
-      }
-      if (link.hostname === 'vimeo.com') {
-        return 'https://player.vimeo.com/video/' + link.pathname.replace('/', '')
+  const query = `*[_type == "projects" && slug.current == $slug][0] {
+    title,
+    description,
+    video_link,
+    thumbnail
+  }`
+
+  export default {
+    head () {
+      return {
+        title: this.project.title,
+        meta: [
+          { charset: 'utf-8' },
+          { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+          { hid: 'description', name: 'description', content: 'IV Movies portfolio' },
+          // OPEN GRAPH
+          { hid: 'og:title', property: 'og:title', content: this.project.title },
+          { hid: 'og:description', property: 'og:description', content: this.project.strippedDescription },
+          { hid: 'og:type', property: 'og:type', content: 'video.movie' },
+          { hid: 'og:url', property: 'og:url', content: this.project.url },
+          { hid: 'og:image', property: 'og:image', content: this.project.thumbnail },
+        ]
       }
     },
-    displayContent (content) {
-      return marked(content)
+
+    asyncData ({ app, params }) {
+      return app.$sanity.fetch(query, {slug: params.projectId})
+        .then(res => {
+          return {
+            project: {
+              title: res.title,
+              video_link: res.video_link,
+              url: `https://www.ivmovies.be/projects/${params.projectId}`,
+              thumbnail: imageUrlBuilder(app.$sanity).image(res.thumbnail).width(1200).height(1200).url(),
+              description: res.description ? toHtml({blocks: res.description}) : '',
+              strippedDescription: res.description ? striptags(toHtml({blocks: res.description})) : ''
+            }
+          }
+        })
+    },
+
+    methods: {
+      iframeEmbedUrl (video_link) {
+        const link = url.parse(video_link)
+        if (link.hostname === 'youtube.com') {
+          return 'https://www.youtube.com/embed/' + link.searchParams.get('v')
+        }
+        if (link.hostname === 'vimeo.com') {
+          return 'https://player.vimeo.com/video/' + link.pathname.replace('/', '')
+        }
+      }
     }
   }
-}
 </script>
 
 <style lang="scss" scoped>
