@@ -21,6 +21,7 @@
 </template>
 
 <script>
+  import url from 'url'
   import toHtml from '@sanity/block-content-to-html'
   import imageUrlBuilder from '@sanity/image-url'
   import striptags from 'striptags'
@@ -68,7 +69,7 @@
 
     methods: {
       iframeEmbedUrl (video_link) {
-        const link = new URL(video_link)
+        const link = url.parse(video_link)
         if (link.hostname === 'youtube.com') {
           return 'https://www.youtube.com/embed/' + link.searchParams.get('v')
         }
