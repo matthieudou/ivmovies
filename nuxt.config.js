@@ -1,5 +1,19 @@
 import { config as sanity } from './utilities/sanity'
 
+const routesQuery = `*[_type == "projects"] {
+  "slug": slug.current
+}`
+
+const paths = sanity.fetch(routesQuery)
+  .then(res => {
+    const projects = res.map(project => `/projects/${project.slug}`)
+    return [
+      '/',
+      '/projects',
+      ...projects
+    ]
+  })
+
 export default {
   head: {
     title: 'IVMOVIES',
@@ -25,33 +39,30 @@ export default {
       class: 'bg-black'
     }
   },
+
   css: [
     '~/assets/styles/main.scss'
   ],
+
   loading: { color: '#3B8070' },
+
   plugins: [
     { src: '~/plugins/ga.js', ssr: false },
     { src: '~/plugins/vue-scrollto.js', ssr: false },
     { src: '~/plugins/sentry.js' },
     { src: '~/plugins/sanity.js' }
   ],
-  generate: {
-    routes: function () {
-      const query = `*[_type == "projects"] {
-        "slug": slug.current
-      }`
 
-      return sanity.fetch(query)
-        .then(res => {
-          const projects = res.map(project => `/projects/${project.slug}`)
-          return [
-            '/',
-            '/projects',
-            ...projects
-          ]
-        })
+  modules: [
+    '@nuxtjs/sitemap'
+  ],
+
+  generate: {
+    routes () {
+      return paths
     }
   },
+
   build: {
     extend (config, { isDev, isClient }) {
       if (isDev && isClient) {
@@ -62,6 +73,18 @@ export default {
           exclude: /(node_modules)/
         })
       }
+    }
+  },
+
+  sitemap: {
+    path: '/sitemap.xml',
+    hostname: 'https://ivmovies.be',
+    cacheTime: 1000 * 60 * 15,
+    gzip: true,
+    generate: true, // Enable me when using nuxt generate
+    exclude: [],
+    routes () {
+      return paths
     }
   }
 }
