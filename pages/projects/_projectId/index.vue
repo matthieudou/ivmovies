@@ -3,17 +3,24 @@
     <div class="container max-w-lg mx-auto mt-8">
       <no-ssr placeholder="Loading...">
         <div class="embed-responsive">
-          <iframe class="absolute pin w-full h-full" :src="iframeEmbedUrl(project.video_link)" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+          <iframe
+            class="absolute pin w-full h-full"
+            :src="iframeEmbedUrl(project.video_link)"
+            frameborder="0"
+            webkitallowfullscreen
+            mozallowfullscreen
+            allowfullscreen/>
         </div>
       </no-ssr>
       <h1 class="font-hairline mt-4">{{ project.title }}</h1>
-      <div class="mt-4 leading-normal" v-html="project.description"></div>
+      <div
+        class="mt-4 leading-normal"
+        v-html="project.description"/>
     </div>
   </div>
 </template>
 
 <script>
-  import url from 'url'
   import toHtml from '@sanity/block-content-to-html'
   import imageUrlBuilder from '@sanity/image-url'
   import striptags from 'striptags'
@@ -38,13 +45,13 @@
           { hid: 'og:description', property: 'og:description', content: this.project.strippedDescription },
           { hid: 'og:type', property: 'og:type', content: 'video.movie' },
           { hid: 'og:url', property: 'og:url', content: this.project.url },
-          { hid: 'og:image', property: 'og:image', content: this.project.thumbnail },
+          { hid: 'og:image', property: 'og:image', content: this.project.thumbnail }
         ]
       }
     },
 
     asyncData ({ app, params }) {
-      return app.$sanity.fetch(query, {slug: params.projectId})
+      return app.$sanity.fetch(query, { slug: params.projectId })
         .then(res => {
           return {
             project: {
@@ -52,8 +59,8 @@
               video_link: res.video_link,
               url: `https://www.ivmovies.be/projects/${params.projectId}`,
               thumbnail: imageUrlBuilder(app.$sanity).image(res.thumbnail).width(1200).height(1200).url(),
-              description: res.description ? toHtml({blocks: res.description}) : '',
-              strippedDescription: res.description ? striptags(toHtml({blocks: res.description})) : ''
+              description: res.description ? toHtml({ blocks: res.description }) : '',
+              strippedDescription: res.description ? striptags(toHtml({ blocks: res.description })) : ''
             }
           }
         })
@@ -61,7 +68,7 @@
 
     methods: {
       iframeEmbedUrl (video_link) {
-        const link = url.parse(video_link)
+        const link = new URL(video_link)
         if (link.hostname === 'youtube.com') {
           return 'https://www.youtube.com/embed/' + link.searchParams.get('v')
         }

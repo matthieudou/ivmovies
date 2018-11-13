@@ -1,5 +1,7 @@
 <template>
-  <all-projects class="pt-2" :projects="projects"></all-projects>
+  <all-projects
+    class="pt-2"
+    :projects="projects"/>
 </template>
 
 <script>
