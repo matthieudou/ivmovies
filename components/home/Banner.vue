@@ -1,16 +1,29 @@
 <template>
   <section class="relative h-screen overflow-hidden">
-    <video class="absolute w-full h-full bg-video hidden md:block" autoplay loop muted>
-      <source src="https://res.cloudinary.com/ivmovies/video/upload/v1541952812/background.webm" type="video/webm">
-      <source src="https://res.cloudinary.com/ivmovies/video/upload/v1541952812/background.mp4" type="video/mp4">
-      <source src="https://res.cloudinary.com/ivmovies/video/upload/v1541952812/background.ogv" type="video/ogg">
+    <video
+      class="absolute w-full h-full bg-video hidden md:block"
+      autoplay
+      loop
+      muted>
+      <source
+        src="https://res.cloudinary.com/ivmovies/video/upload/v1541952812/background.webm"
+        type="video/webm">
+      <source
+        src="https://res.cloudinary.com/ivmovies/video/upload/v1541952812/background.mp4"
+        type="video/mp4">
+      <source
+        src="https://res.cloudinary.com/ivmovies/video/upload/v1541952812/background.ogv"
+        type="video/ogg">
     </video>
-    <div class="abslolute banner__background--image w-full h-full"></div>
+    <div class="abslolute banner__background--image w-full h-full"/>
     <div class="absolute pin h-screen flex flex-col justify-between">
       <!-- LOGO -->
       <div class=" flex-1 p-8">
         <nuxt-link to="/">
-          <img class="h-16 w-16 lg:h-24 lg:w-24" src="@/assets/images/shared/logo-white.png" alt="Logo ivmovies">
+          <img
+            class="h-16 w-16 lg:h-24 lg:w-24"
+            src="@/assets/images/shared/logo-white.png"
+            alt="Logo ivmovies">
         </nuxt-link>
       </div>
 
@@ -30,13 +43,19 @@
               class="bg-white rounded-full p-4 text-second mx-4 font-bold flex items-center icon-animation"
               v-scroll-to="'#projects'">
               <span class="mx-2">My work</span>
-              <svg class="fill-current w-4 h-4 mx-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"/></svg>
+              <svg
+                class="fill-current w-4 h-4 mx-2"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512"><path d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"/></svg>
             </button>
             <button
               class="p-4 rounded-full border-2 border-white text-white mx-4 font-bold hover:bg-white hover:text-second hover:border-0 flex items-center icon-animation"
               v-scroll-to="'footer'">
               <span class="mx-2">Contact</span>
-              <svg class="fill-current w-4 h-4 mx-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"/></svg>
+              <svg
+                class="fill-current w-4 h-4 mx-2"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512"><path d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"/></svg>
             </button>
           </div>
         </div>
@@ -44,27 +63,26 @@
 
       <!-- SHARING -->
       <div class="-mb-1 flex-1 bg-linear p-8 flex items-end justify-end">
-        <socials></socials>
+        <socials/>
       </div>
     </div>
   </section>
 </template>
 
 <script>
-import Socials from '@/components/shared/Socials'
+  import Socials from '@/components/shared/Socials'
 
-export default {
-  mounted() {
-    setTimeout(() => {
-      this.$el.querySelector('video').play()
-    }, 500);
-  },
-  components: {
-    Socials
+  export default {
+    mounted () {
+      setTimeout(() => {
+        this.$el.querySelector('video').play()
+      }, 500)
+    },
+    components: {
+      Socials
+    }
   }
-}
 </script>
-
 
 <style lang="scss" scoped>
 .banner__background--image {

@@ -1,7 +1,7 @@
 <template>
   <div>
-    <banner></banner>
-    <all-projects :projects="projects"></all-projects>
+    <banner/>
+    <all-projects :projects="projects"/>
   </div>
 </template>
 

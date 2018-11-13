@@ -9,7 +9,7 @@
   import AppFooter from '@/components/shared/AppFooter'
 
   export default {
-    components:{
+    components: {
       AppFooter
     }
   }

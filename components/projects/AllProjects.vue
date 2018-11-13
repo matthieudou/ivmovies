@@ -26,7 +26,12 @@
   import imageUrlBuilder from '@sanity/image-url'
 
   export default {
-    props: ['projects'],
+    props: {
+      projects: {
+        default: () => ([]),
+        type: Array
+      }
+    },
 
     methods: {
       imageUrlFor (source) {
