@@ -15,7 +15,7 @@
       <h1 class="font-hairline mt-4">{{ project.title }}</h1>
       <div
         class="mt-4 leading-normal"
-        v-html="project.description"/>
+        v-html="project.description"></div>
     </div>
   </div>
 </template>
