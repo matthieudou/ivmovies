@@ -35,7 +35,7 @@
 
           <!-- DESCRIPTION -->
           <p class="leading-loose text-lg">worldwide visual content creator based in belgium</p>
-          <p class="leading-loose text-lg">corporate • event • adventure • music</p>
+          <p class="leading-loose text-lg">outdoor sports • corporate • event • music</p>
 
           <!-- BUTTONS -->
           <div class="flex mt-8 justify-center text-sm">
